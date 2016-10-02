@@ -1,0 +1,9 @@
+computeTransition(Pattern,Alphabet)
+{
+	m=P.size()
+	n=A.size()
+	for q in range 0 to m
+		for i in range 0 to n
+			k=min(m+1,q+2)
+			while 
+}
