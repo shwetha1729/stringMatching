@@ -2,8 +2,13 @@ computeTransition(Pattern,Alphabet)
 {
 	m=P.size()
 	n=A.size()
+	dictionary delta;
 	for q in range 0 to m
-		for i in range 0 to n
+		for a in range 0 to n
 			k=min(m+1,q+2)
-			while 
+			while  p(k) not a suffix p(q)a
+			k--;
+			delta(q,a)=k; //key value pair index alphabet[a]
+	return delta;
+			
 }
