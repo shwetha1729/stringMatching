@@ -1,14 +1,35 @@
-computeTransition(Pattern,Alphabet)
-{
-	m=P.size()
-	n=A.size()
-	dictionary delta;
-	for q in range 0 to m
-		for a in range 0 to n
+def computeTransition(Pattern,Alphabet,delta) :
+	m=len(Pattern)
+	n=len(Alphabet)
+	for q in range(m):
+		for a in range(n):
 			k=min(m+1,q+2)
-			while  p(k) not a suffix p(q)a
-			k--;
-			delta(q,a)=k; //key value pair index alphabet[a]
-	return delta;
+			print("hi")
+			pa=Pattern[:q]+Alphabet[a]
+			while not (Pattern[:k].endswith(pa)):
+				k-=1
+			delta[(Alphabet[a],q)]=k
 			
-}
+
+def finiteAutomatonMatcher (Text,delta,m) :
+	n=len(Text)
+	q=0
+	for i in range (1,n):
+		q=delta[(q,Text[i])]
+		if q==m :
+			print("pattern occurs with shift ",i-m)
+
+with open ("AESOP-TALES.txt", "r") as myfile:
+	data=myfile.read()
+	
+import re
+data=re.sub(' +',' ',data)
+A=set(data);
+Alphabet=list(A);
+Pattern=("http");
+delta ={}
+computeTransition(Pattern,Alphabet,delta)
+m=len(Pattern)
+finiteAutomatonMatcher(data,delta,m)
+
+
