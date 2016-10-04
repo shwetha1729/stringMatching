@@ -4,9 +4,10 @@ def computeTransition(Pattern,Alphabet,delta) :
 	for q in range(m):
 		for a in range(n):
 			k=min(m+1,q+2)
-			print("hi")
+			#print("hi")
+			k-=1
 			pa=Pattern[:q]+Alphabet[a]
-			while not (Pattern[:k].endswith(pa)):
+			while not (Pattern[:k].endswith(pa)) and k>0:
 				k-=1
 			delta[(Alphabet[a],q)]=k
 			
