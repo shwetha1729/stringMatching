@@ -6,7 +6,7 @@ def computeTransition(Pattern,Alphabet,delta) :
 			k=min(m+1,q+2)
 			print("hi")
 			pa=Pattern[:q]+Alphabet[a]
-			while not (Pattern[:k].endswith(pa)):
+			while not (Pattern[:k].endswith(pa)) and k>0:
 				k-=1
 			delta[(Alphabet[a],q)]=k
 			
